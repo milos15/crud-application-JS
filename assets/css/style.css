@@ -28,6 +28,7 @@ h1 {
 .input-content {
     max-width: 500px;
     width: 100%;
+    margin-left: 50px;
 }
 
 .dynamic-content {
@@ -36,6 +37,7 @@ h1 {
     justify-content: flex-start;
     max-width: 750px;
     width: 100%;
+    margin-right: 50px;
 }
 
 .input-content p {
