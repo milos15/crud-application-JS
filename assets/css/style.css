@@ -97,12 +97,12 @@ table button {
     background-color: #d3ab0d;
 }
 
-#btn-delete {
+.btn-delete {
     background-color: red;
 }
 
-@media (min-width: 1250px) and (max-width: 1360px) {
+@media (min-width: 1200px) and (max-width: 1400px) {
     .dynamic-content {
-        max-width: 600px;
+        max-width: 500px;
     }    
 }

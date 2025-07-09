@@ -3,6 +3,7 @@ window.onload = function () {
   const lastName = document.getElementById("input-last-name");
   const age = document.getElementById("input-age");
   const button = document.getElementById("button");
+  const deleteButton = document.getElementById("btn-delete");
 
   function addTable() {
     // Getting Values
@@ -41,11 +42,26 @@ window.onload = function () {
       <td>${firstNameValue}</td>
       <td>${lastNameValue}</td>
       <td>${ageValue}</td>
-      <td>
-        <button id="btn-edit">Edit</button>
-        <button id="btn-delete">Delete</button>
-      </td>
     `;
+
+    // Delete Table
+    
+    // Create new td
+    const ActionTd = document.createElement("td");
+    // Create delete button
+    const deleteBtn = document.createElement("button");
+    // Give the button text
+    deleteBtn.textContent = "Delete";
+    // CSS Style -> red background 
+    deleteBtn.classList.add("btn-delete");
+    // Delete Table
+    deleteBtn.onclick = function () {
+      table.remove();
+    };
+
+    // Appending Elements
+    ActionTd.append(deleteBtn);
+    tr.append(ActionTd);
 
     tbody.appendChild(tr);
     table.appendChild(tbody);
