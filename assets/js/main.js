@@ -1,9 +1,8 @@
 window.onload = function () {
-  const firstName = document.getElementById("input-first-name");
-  const lastName = document.getElementById("input-last-name");
-  const age = document.getElementById("input-age");
-  const button = document.getElementById("button");
-  const deleteButton = document.getElementById("btn-delete");
+  let firstName = document.getElementById("input-first-name");
+  let lastName = document.getElementById("input-last-name");
+  let age = document.getElementById("input-age");
+  const button = document.getElementById("btn-button");
 
   function addTable() {
     // Getting Values
@@ -36,34 +35,66 @@ window.onload = function () {
 
     // Tbody --> Dynamic Content
     const tbody = document.createElement("tbody");
-    const tr = document.createElement("tr");
+    const trBody = document.createElement("tr");
 
-    tr.innerHTML = `
+    trBody.innerHTML = `
       <td>${firstNameValue}</td>
       <td>${lastNameValue}</td>
-      <td>${ageValue}</td>
+      <td>${ageValue}</td> 
     `;
 
+    // Creating Action Column
+    const action = document.createElement("td");
+
     // Delete Table
-    
-    // Create new td
-    const ActionTd = document.createElement("td");
     // Create delete button
     const deleteBtn = document.createElement("button");
     // Give the button text
     deleteBtn.textContent = "Delete";
-    // CSS Style -> red background 
+    // CSS Style -> red background
     deleteBtn.classList.add("btn-delete");
     // Delete Table
     deleteBtn.onclick = function () {
       table.remove();
     };
 
-    // Appending Elements
-    ActionTd.append(deleteBtn);
-    tr.append(ActionTd);
+    // Update Table
+    const updateBtn = document.createElement("button");
+    updateBtn.textContent = "Update";
+    updateBtn.classList.add("btn-edit");
 
-    tbody.appendChild(tr);
+    updateBtn.onclick = function () {
+      // Remember the row we want to update
+      const updateRow = trBody;
+
+      // Insert current values into the inputs
+      firstName.value = updateRow.children[0].textContent;
+      lastName.value = updateRow.children[1].textContent;
+      age.value = updateRow.children[2].textContent;
+
+      // Setting the Submit button functionality to update the current input values
+      button.onclick = function () {
+        updateRow.children[0].textContent = firstName.value;
+        updateRow.children[1].textContent = lastName.value;
+        updateRow.children[2].textContent = age.value;
+
+        // Clearing inputs
+        firstName.value = "";
+        lastName.value = "";
+        age.value = "";
+
+        // Setting the Submit button its original functionality
+        button.onclick = addTable;
+      };
+    };
+
+    // Appending Elements
+    action.append(updateBtn);
+    action.appendChild(deleteBtn);
+
+    trBody.append(action);
+
+    tbody.appendChild(trBody);
     table.appendChild(tbody);
 
     // Adding to Dynamic Content

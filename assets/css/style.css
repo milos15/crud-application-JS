@@ -42,7 +42,7 @@ h1 {
 
 .input-content p {
     font-size: 16px;
-    margin: 0 0 10px 15px; /* top, right, bottom, left */ 
+    margin: 0 0 10px 12px; /* top, right, bottom, left */ 
 }
 
 input {
@@ -50,6 +50,7 @@ input {
     padding: 12px;
     margin-bottom: 10px;
     border-radius: 150px; /* Large numbers make the capsule input shape */
+    font-size: 15px;
 }
 
 .btn-submit {
@@ -93,7 +94,7 @@ table button {
     cursor: pointer;
 }
 
-#btn-edit {
+.btn-edit {
     background-color: #d3ab0d;
 }
 
